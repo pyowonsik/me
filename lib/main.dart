@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:me/src/app.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:me/src/common/provider/router_provider.dart';
 
 void main() {
-  runApp(const _App());
+  runApp(const ProviderScope(
+    child: _App(),
+  ));
 }
 
-class _App extends StatelessWidget {
+class _App extends ConsumerWidget {
   const _App({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const App();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(routerProvider);
+    return MaterialApp.router(
+      theme: ThemeData(
+        fontFamily: 'NotoSans',
+      ),
+      routerConfig: router,
+    );
   }
 }
