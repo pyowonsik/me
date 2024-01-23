@@ -83,21 +83,23 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
 
-  fonts:
-    - family: NotoSans
-      fonts:
-      - asset: asset/fonts/NotoSansKr-Black.otf
-        weight: 900
-      - asset: asset/fonts/NotoSansKr-Bold.otf
-        weight: 700
-      - asset: asset/fonts/NotoSansKr-Medium.otf
-        weight: 500
-      - asset: asset/fonts/NotoSansKr-Regular.otf
-        weight: 400
-      - asset: asset/fonts/NotoSansKr-Light.otf
-        weight: 300
-      - asset: asset/fonts/NotoSansKr-Thin.otf
-        weight: 100
+  # fonts:
+  #   - family: NotoSans
+  #     fonts:
+  #     - asset: asset/fonts/NotoSansKr-Black.otf
+  #       weight: 900
+  #     - asset: asset/fonts/NotoSansKr-Bold.otf
+  #       weight: 700
+  #     - asset: asset/fonts/NotoSansKr-Medium.otf
+  #       weight: 500
+  #     - asset: asset/fonts/NotoSansKr-Regular.otf
+  #       weight: 400
+  #     - asset: asset/fonts/NotoSansKr-Light.otf
+  #       weight: 300
+  #     - asset: asset/fonts/NotoSansKr-Thin.otf
+  #       weight: 100
+  
+  
   # fonts:
   #   - family: Schyler
   #     fonts:
