@@ -4,12 +4,13 @@ part 'diary.freezed.dart';
 part 'diary.g.dart';
 
 @freezed
-class Diary with _$Diary {
-  factory Diary({
+class DiaryModel with _$DiaryModel {
+  factory DiaryModel({
     required String name,
     required String date,
     required String content,
-  }) = _Diary;
+  }) = _DiaryModel;
 
-  factory Diary.fromJson(Map<String, dynamic> json) => _$DiaryFromJson(json);
+  factory DiaryModel.fromJson(Map<String, dynamic> json) =>
+      _$DiaryModelFromJson(json);
 }
