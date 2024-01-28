@@ -8,7 +8,6 @@ class ReadDiary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
-      title: 'Read Diary',
       body: Column(
         children: [],
       ),

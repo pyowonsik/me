@@ -10,9 +10,8 @@ class WriteDiary extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return DefaultLayout(
-        title: 'Write Diary',
         body: Column(
-          children: [Text('제목')],
-        ));
+      children: [Text('제목')],
+    ));
   }
 }

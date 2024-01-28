@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:me/src/common/layout/default_layout.dart';
-import 'package:me/src/common/provider/router_provider.dart';
+import 'package:me/src/diary/bloc/diary_bloc.dart';
+import 'package:me/src/diary/repository/diary_repository.dart';
 import 'package:me/src/diary/view/diary.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RootTab extends ConsumerStatefulWidget {
+class RootTab extends StatefulWidget {
   const RootTab({super.key});
 
   @override
-  ConsumerState<RootTab> createState() => _RootTabState();
+  State<RootTab> createState() => _RootTabState();
 }
 
-class _RootTabState extends ConsumerState<RootTab>
-    with SingleTickerProviderStateMixin {
+class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
   var index = 0;
   late TabController controller;
 
@@ -40,13 +40,19 @@ class _RootTabState extends ConsumerState<RootTab>
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
-      title: 'Root Tab',
       body: TabBarView(
           controller: controller,
           physics: const NeverScrollableScrollPhysics(),
           children: [
             Container(),
-            Diary(),
+            RepositoryProvider(
+              create: (context) => DiaryRepository(),
+              child: BlocProvider(
+                create: (context) =>
+                    DiaryBloc(diaryRepository: context.read<DiaryRepository>()),
+                child: Diary(),
+              ),
+            ),
           ]),
       bottomNavigationBar: BottomNavigationBar(
           selectedFontSize: 10,
@@ -57,7 +63,8 @@ class _RootTabState extends ConsumerState<RootTab>
           },
           currentIndex: index,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined), label: '홈'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.edit_outlined), label: '일기'),
           ]),
