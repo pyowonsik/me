@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:me/src/common/layout/default_layout.dart';
-import 'package:me/src/common/provider/router_provider.dart';
 import 'package:me/src/diary/view/diary.dart';
 
 class RootTab extends ConsumerStatefulWidget {
