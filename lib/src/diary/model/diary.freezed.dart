@@ -20,7 +20,8 @@ DiaryModel _$DiaryModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DiaryModel {
-  String get name => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
 
@@ -36,7 +37,7 @@ abstract class $DiaryModelCopyWith<$Res> {
           DiaryModel value, $Res Function(DiaryModel) then) =
       _$DiaryModelCopyWithImpl<$Res, DiaryModel>;
   @useResult
-  $Res call({String name, String date, String content});
+  $Res call({String id, String title, String date, String content});
 }
 
 /// @nodoc
@@ -52,14 +53,19 @@ class _$DiaryModelCopyWithImpl<$Res, $Val extends DiaryModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? id = null,
+    Object? title = null,
     Object? date = null,
     Object? content = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       date: null == date
           ? _value.date
@@ -81,7 +87,7 @@ abstract class _$$DiaryModelImplCopyWith<$Res>
       __$$DiaryModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String date, String content});
+  $Res call({String id, String title, String date, String content});
 }
 
 /// @nodoc
@@ -95,14 +101,19 @@ class __$$DiaryModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? id = null,
+    Object? title = null,
     Object? date = null,
     Object? content = null,
   }) {
     return _then(_$DiaryModelImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       date: null == date
           ? _value.date
@@ -120,13 +131,18 @@ class __$$DiaryModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DiaryModelImpl implements _DiaryModel {
   _$DiaryModelImpl(
-      {required this.name, required this.date, required this.content});
+      {required this.id,
+      required this.title,
+      required this.date,
+      required this.content});
 
   factory _$DiaryModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DiaryModelImplFromJson(json);
 
   @override
-  final String name;
+  final String id;
+  @override
+  final String title;
   @override
   final String date;
   @override
@@ -134,7 +150,7 @@ class _$DiaryModelImpl implements _DiaryModel {
 
   @override
   String toString() {
-    return 'DiaryModel(name: $name, date: $date, content: $content)';
+    return 'DiaryModel(id: $id, title: $title, date: $date, content: $content)';
   }
 
   @override
@@ -142,14 +158,15 @@ class _$DiaryModelImpl implements _DiaryModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DiaryModelImpl &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.content, content) || other.content == content));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, date, content);
+  int get hashCode => Object.hash(runtimeType, id, title, date, content);
 
   @JsonKey(ignore: true)
   @override
@@ -167,7 +184,8 @@ class _$DiaryModelImpl implements _DiaryModel {
 
 abstract class _DiaryModel implements DiaryModel {
   factory _DiaryModel(
-      {required final String name,
+      {required final String id,
+      required final String title,
       required final String date,
       required final String content}) = _$DiaryModelImpl;
 
@@ -175,7 +193,9 @@ abstract class _DiaryModel implements DiaryModel {
       _$DiaryModelImpl.fromJson;
 
   @override
-  String get name;
+  String get id;
+  @override
+  String get title;
   @override
   String get date;
   @override

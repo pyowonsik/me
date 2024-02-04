@@ -41,19 +41,13 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return DefaultLayout(
       body: TabBarView(
-          controller: controller,
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            Container(),
-            RepositoryProvider(
-              create: (context) => DiaryRepository(),
-              child: BlocProvider(
-                create: (context) =>
-                    DiaryBloc(diaryRepository: context.read<DiaryRepository>()),
-                child: Diary(),
-              ),
-            ),
-          ]),
+        controller: controller,
+        physics: const NeverScrollableScrollPhysics(),
+        children: [
+          Container(),
+          const Diary(),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
           selectedFontSize: 10,
           unselectedFontSize: 10,

@@ -8,14 +8,16 @@ part of 'diary.dart';
 
 _$DiaryModelImpl _$$DiaryModelImplFromJson(Map<String, dynamic> json) =>
     _$DiaryModelImpl(
-      name: json['name'] as String,
+      id: json['id'] as String,
+      title: json['title'] as String,
       date: json['date'] as String,
       content: json['content'] as String,
     );
 
 Map<String, dynamic> _$$DiaryModelImplToJson(_$DiaryModelImpl instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'id': instance.id,
+      'title': instance.title,
       'date': instance.date,
       'content': instance.content,
     };
