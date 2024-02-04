@@ -7,7 +7,7 @@ part 'diary.g.dart';
 class DiaryModel with _$DiaryModel {
   factory DiaryModel({
     required String id,
-    required String name,
+    required String title,
     required String date,
     required String content,
   }) = _DiaryModel;
