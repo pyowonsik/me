@@ -242,7 +242,8 @@ class __$$DiaryStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DiaryStateImpl implements _DiaryState {
-  _$DiaryStateImpl({final List<DiaryModel>? diarys}) : _diarys = diarys;
+  _$DiaryStateImpl({required final List<DiaryModel>? diarys})
+      : _diarys = diarys;
 
   final List<DiaryModel>? _diarys;
   @override
@@ -279,7 +280,8 @@ class _$DiaryStateImpl implements _DiaryState {
 }
 
 abstract class _DiaryState implements DiaryState {
-  factory _DiaryState({final List<DiaryModel>? diarys}) = _$DiaryStateImpl;
+  factory _DiaryState({required final List<DiaryModel>? diarys}) =
+      _$DiaryStateImpl;
 
   @override
   List<DiaryModel>? get diarys;

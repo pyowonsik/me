@@ -50,7 +50,7 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
               child: BlocProvider(
                 create: (context) =>
                     DiaryBloc(diaryRepository: context.read<DiaryRepository>()),
-                child: Diary(),
+                child: const Diary(),
               ),
             ),
           ]),

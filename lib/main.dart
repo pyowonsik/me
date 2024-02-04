@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:me/src/common/view/root_tab.dart';
+import 'package:me/src/diary/view/read_diary.dart';
 import 'package:me/src/diary/view/write_diary.dart';
 
 void main() {
@@ -21,8 +22,10 @@ class _App extends ConsumerWidget {
       routerConfig: GoRouter(
         routes: [
           GoRoute(path: '/', builder: (_, state) => const RootTab()),
-          // GoRoute(
-          //     path: '/write_diary', builder: (_, state) => const WriteDiary())
+          GoRoute(
+              path: '/write_diary', builder: (_, state) => const WriteDiary()),
+          GoRoute(
+              path: '/read_diary', builder: (_, state) => const ReadDiary()),
         ],
       ),
     );
