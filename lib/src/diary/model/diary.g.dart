@@ -8,7 +8,7 @@ part of 'diary.dart';
 
 _$DiaryModelImpl _$$DiaryModelImplFromJson(Map<String, dynamic> json) =>
     _$DiaryModelImpl(
-      id: json['id'] as String,
+      id: json['id'] as int,
       title: json['title'] as String,
       date: json['date'] as String,
       content: json['content'] as String,

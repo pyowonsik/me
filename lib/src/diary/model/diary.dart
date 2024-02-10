@@ -6,7 +6,7 @@ part 'diary.g.dart';
 @freezed
 class DiaryModel with _$DiaryModel {
   factory DiaryModel({
-    required String id,
+    required int id,
     required String title,
     required String date,
     required String content,
