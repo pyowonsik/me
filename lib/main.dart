@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:me/src/auth/view/login.dart';
 import 'package:me/src/common/view/root_tab.dart';
 import 'package:me/src/diary/bloc/diary_bloc.dart';
 import 'package:me/src/diary/repository/diary_repository.dart';
@@ -33,8 +34,13 @@ class _App extends StatelessWidget {
             fontFamily: 'NotoSans',
           ),
           routerConfig: GoRouter(
+            // redirect 로직 추가 user정보 있다면
+            initialLocation: '/login',
+
             routes: [
               GoRoute(path: '/', builder: (context, state) => const RootTab()),
+              GoRoute(
+                  path: '/login', builder: (context, state) => const Login()),
               GoRoute(
                 path: '/write_diary',
                 builder: (context, state) => const WriteDiary(),
