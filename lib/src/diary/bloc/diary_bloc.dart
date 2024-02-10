@@ -14,14 +14,15 @@ class DiaryBloc extends Bloc<DiaryEvent, DiaryState> {
   final DiaryRepository diaryRepository;
   DiaryBloc({required this.diaryRepository}) : super(DiaryState(diarys: [])) {
     on<FetchDiarys>((event, emit) async {
-      List<DiaryModel> diarys = await diaryRepository.loadDiaryJsonData();
+      // List<DiaryModel> diarys = await diaryRepository.loadDiaryJsonData();
+
+      List<DiaryModel> diarys =
+          await diaryRepository.getDiarys("pws3385@test.com");
+
       return emit(state.copyWith(diarys: diarys));
     });
 
     on<WriteDiaryEvent>((event, emit) async {
-      print(event.title);
-      print(event.date);
-      print(event.content);
       // DiaryModel newDiary = DiaryModel(id: '', name: '', date: '', content: '');
     });
 

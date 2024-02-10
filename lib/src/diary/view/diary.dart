@@ -22,7 +22,9 @@ class Diary extends StatelessWidget {
             itemBuilder: (context, index) {
               DiaryModel e = diaryBloc.state.diarys!.toList()[index];
               return InkWell(
-                onTap: () {},
+                onTap: () {
+                  print(e);
+                },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(

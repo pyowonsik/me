@@ -20,7 +20,7 @@ DiaryModel _$DiaryModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DiaryModel {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $DiaryModelCopyWith<$Res> {
           DiaryModel value, $Res Function(DiaryModel) then) =
       _$DiaryModelCopyWithImpl<$Res, DiaryModel>;
   @useResult
-  $Res call({String id, String title, String date, String content});
+  $Res call({int id, String title, String date, String content});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$DiaryModelCopyWithImpl<$Res, $Val extends DiaryModel>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -87,7 +87,7 @@ abstract class _$$DiaryModelImplCopyWith<$Res>
       __$$DiaryModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title, String date, String content});
+  $Res call({int id, String title, String date, String content});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$DiaryModelImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -140,7 +140,7 @@ class _$DiaryModelImpl implements _DiaryModel {
       _$$DiaryModelImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String title;
   @override
@@ -184,7 +184,7 @@ class _$DiaryModelImpl implements _DiaryModel {
 
 abstract class _DiaryModel implements DiaryModel {
   factory _DiaryModel(
-      {required final String id,
+      {required final int id,
       required final String title,
       required final String date,
       required final String content}) = _$DiaryModelImpl;
@@ -193,7 +193,7 @@ abstract class _DiaryModel implements DiaryModel {
       _$DiaryModelImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get title;
   @override
