@@ -4,7 +4,6 @@ import 'package:me/src/diary/model/diary.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:me/src/diary/repository/diary_repository.dart';
-import 'package:me/src/diary/view/diary.dart';
 
 part 'diary_bloc.freezed.dart';
 part 'diary_event.dart';

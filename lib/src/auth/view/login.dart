@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:me/src/auth/bloc/auth_bloc.dart';
+import 'package:me/src/auth/bloc/auth_event.dart';
 import 'package:me/src/common/layout/default_layout.dart';
 
 class Login extends StatelessWidget {
@@ -9,6 +12,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     String email = '';
     String password = '';
+    final authBloc = context.read<AuthBloc>();
     return DefaultLayout(
         body: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -39,6 +43,8 @@ class Login extends StatelessWidget {
             children: [
               ElevatedButton(
                   onPressed: () {
+                    authBloc.add(LoginEvent(email: email, password: password));
+                    // authBloc.add(LoginEvent(email: email, password: password));
                     context.go('/');
                   },
                   child: const Text('로그인')),

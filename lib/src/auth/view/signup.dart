@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:me/src/auth/bloc/auth_bloc.dart';
+import 'package:me/src/auth/bloc/auth_event.dart';
 import 'package:me/src/auth/model/auth_model.dart';
 import 'package:me/src/common/layout/default_layout.dart';
 
@@ -8,10 +11,10 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // AuthModel user = AuthModel(email: '', password: '', nickName: '');
     String email = '';
     String password = '';
     String nickName = '';
+    final authBloc = context.read<AuthBloc>();
     return DefaultLayout(
         body: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -48,6 +51,10 @@ class SignUp extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
+                authBloc.add(SignupEvent(
+                    email: email, password: password, nickName: nickName));
+                // authBloc.add(AuthEvent.signup(
+                //     email: email, password: password, nickName: nickName));
                 context.go('/login');
               },
               child: const Text('회원가입')),

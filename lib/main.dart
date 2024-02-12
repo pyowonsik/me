@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:go_router/go_router.dart';
+import 'package:me/src/auth/bloc/auth_bloc.dart';
+import 'package:me/src/auth/repository/auth_repository.dart';
 import 'package:me/src/auth/view/login.dart';
 import 'package:me/src/auth/view/signup.dart';
 import 'package:me/src/common/view/root_tab.dart';
@@ -19,17 +22,27 @@ class _App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FlutterSecureStorage storage = const FlutterSecureStorage();
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(
             create: (context) =>
                 DiaryRepository(baseUrl: 'http://127.0.0.1:3000', dio: Dio())),
+        RepositoryProvider(
+            create: (context) =>
+                AuthRepository(baseUrl: 'http://127.0.0.1:3000', dio: Dio())),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (context) => DiaryBloc(
               diaryRepository: context.read<DiaryRepository>(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => AuthBloc(
+              authRepository: context.read<AuthRepository>(),
+              storage: storage,
             ),
           ),
         ],
